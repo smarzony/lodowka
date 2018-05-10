@@ -45,11 +45,14 @@ void loop()
   }
 
   if (serial_counter >= 60)
+  {
     digitalWrite(BUZZER, 1);
+    digitalWrite(LED_PIN, led_enable);
+  }
   else
     digitalWrite(BUZZER, 0);
 
-  if (serial_counter % 2 == 0)
+  if (serial_counter % 2 == 0 && serial_counter < 60)
     digitalWrite(LED_PIN, 0);
   else
     digitalWrite(LED_PIN, led_enable);
